@@ -13,17 +13,7 @@ public class GameSetup : MonoBehaviour
     public TMPro.TMP_Dropdown opponentDD;
     public TMPro.TMP_Dropdown colourDD;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
     /// <summary>
     /// function called when the user clicks the submit button

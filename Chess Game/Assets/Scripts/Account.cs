@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Account : MonoBehaviour
 {
@@ -11,11 +12,16 @@ public class Account : MonoBehaviour
     public string wins;
     public string losses;
     public string stalemates;
+    public Text title;
+    public Text winsText;
+    public Text lossText;
+    public Text stalemateText;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        accountName = PlayerPrefs.GetString("username");
+        title.text = accountName;
     }
 
     // Update is called once per frame
