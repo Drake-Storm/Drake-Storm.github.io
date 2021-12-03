@@ -2,19 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    public Text titleText;
     public string setupScene;
     public string accountScene;
     public string leaderboardScene;
+    private int justLaunched;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        justLaunched = PlayerPrefs.GetInt("justLaunched");
+        if (justLaunched == 0)
+        {
+            PlayerPrefs.SetInt("justLaunched", 1);
+            PlayerPrefs.DeleteKey("username");
+
+        }
     }
 
     // Update is called once per frame
@@ -28,7 +36,14 @@ public class MainMenu : MonoBehaviour
     /// </summary>
     public void PlayBtnPressed()
     {
-        SceneManager.LoadScene(setupScene);
+        if(PlayerPrefs.HasKey("username"))
+        {
+            SceneManager.LoadScene(setupScene);
+        }
+        else
+        {
+            titleText.text = "sign in to play";
+        }
     }
 
     /// <summary>

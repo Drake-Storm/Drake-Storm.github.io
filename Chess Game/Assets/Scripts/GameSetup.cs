@@ -30,7 +30,6 @@ public class GameSetup : MonoBehaviour
     public void DropDownOpponentChanged(TMPro.TMP_Dropdown sender)
     {
         opponent = sender.options[sender.value].text;
-        Debug.Log("opponent: " + opponent);
     }
 
     /// <summary>
@@ -40,7 +39,6 @@ public class GameSetup : MonoBehaviour
     public void DropDownColourChanged(TMPro.TMP_Dropdown sender)
     {
         colour = sender.options[sender.value].text;
-        Debug.Log("colour: " + colour);
     }
 
     /// <summary>

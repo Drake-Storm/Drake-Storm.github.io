@@ -30,35 +30,6 @@ public class Login : MonoBehaviour
 
         //Checks account database with inputs
         CheckAccount();
-        /*bool accountCheck = checkUsername;
-        
-
-        if (accountCheck == true)
-        {
-            //Check password with username
-            bool passwordMatch = CheckPassword();
-
-            //If password correct switch scene
-
-            if (passwordMatch)
-            {
-                Debug.Log("passwordMatch = True: " + checkUsername);
-                SwitchScenes();
-            }
-
-            else
-            {
-                passwordInput.placeholder.GetComponent<Text>().text = "Incorrect Password";
-                Debug.Log("Incorrect Password");
-            }
-        }
-
-        else
-        {
-            Debug.Log("register");
-            //Register User
-            CallRegistration();
-        }*/
 
     }
 
@@ -115,18 +86,6 @@ public class Login : MonoBehaviour
                 Debug.Log("checkingTheUsername = False");
             }
         }
-        //WWW www = new WWW("http://localhost:1080/sqlconnect/checkUsername.php", form);
-        //yield return www;
-        //if (www.text != "0")
-        //{
-        //    Debug.Log(www.text);
-        //    checkUsername = false;
-        //}
-        //else
-        //{
-        //    checkUsername = true;
-        //    Debug.Log("checkUsername should be true");
-        //}
 
     }
 
@@ -203,13 +162,16 @@ public class Login : MonoBehaviour
         }
         else
         {
-
+            Debug.Log(webRequest.downloadHandler.text);
             Debug.Log("User account Created.");
-            SceneManager.LoadScene(accountScene);
+            SwitchScenes();
         }
 
     }
 
+    /// <summary>
+    /// This switches the scenes and saves the player's username
+    /// </summary>
     public void SwitchScenes()
     {
         PlayerPrefs.SetString("username", username);
